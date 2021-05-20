@@ -5,6 +5,7 @@ namespace App\Restify;
 use App\Models\Character;
 use Binaryk\LaravelRestify\Fields\BelongsTo;
 use Binaryk\LaravelRestify\Fields\BelongsToMany;
+use Binaryk\LaravelRestify\Http\Requests\RestifyRequest;
 
 class CharacterRepository extends Repository
 {
