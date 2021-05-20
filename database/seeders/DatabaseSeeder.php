@@ -12,10 +12,11 @@ class DatabaseSeeder extends Seeder
     {
         if (App::environment('local') || App::environment('testing')) {
             $this->call([
+                UserSeed::class,
                 QuoteSeed::class,
                 EpisodeSeed::class,
                 CharacterSeed::class,
-                UserSeed::class,
+
             ]);
         }
     }

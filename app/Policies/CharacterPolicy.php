@@ -5,89 +5,60 @@ namespace App\Policies;
 use App\Models\Character;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Contracts\Auth\Authenticatable;
 
 class CharacterPolicy
 {
     use HandlesAuthorization;
 
-    /**
-     * Determine whether the user can use restify feature for each CRUD operation.
-     * So if this is not allowed, all operations will be disabled
-     * @param User $user
-     * @return mixed
-     */
-    public function allowRestify(User $user = null)
+    public function allowRestify(Authenticatable $user)
     {
-        //
+        return true;
     }
 
-    /**
-     * Determine whether the user can get the model.
-     *
-     * @param User $user
-     * @param Character $model
-     * @return mixed
-     */
-    public function show(User $user, Character $model)
+    public function show(Authenticatable $user, Character $character)
     {
-        //
+        return true;
     }
 
-    /**
-     * Determine whether the user can create models.
-     *
-     * @param User $user
-     * @return mixed
-     */
-    public function store(User $user)
+    public function store(Authenticatable $user)
     {
-        //
+        return true;
     }
 
-    /**
-     * Determine whether the user can create multiple models at once.
-     *
-     * @param User $user
-     * @return mixed
-     */
     public function storeBulk(User $user)
     {
-        //
+        return true;
     }
 
-    /**
-     * Determine whether the user can update the model.
-     *
-     * @param User $user
-     * @param Character $model
-     * @return mixed
-     */
-    public function update(User $user, Character $model)
+    public function update(Authenticatable $user, Character $character)
     {
-        //
+        return $user->id === $character->user_id;
     }
 
-    /**
-     * Determine whether the user can update bulk the model.
-     *
-     * @param User $user
-     * @param Character $model
-     * @return mixed
-     */
-    public function updateBulk(User $user, Character $model)
+
+    public function updateBulk(Authenticatable $user, Character $character)
     {
-        //
+        return $user->id === $character->user_id;
     }
 
-    /**
-     * Determine whether the user can delete the model.
-     *
-     * @param User $user
-     * @param Character $model
-     * @return mixed
-     */
-    public function delete(User $user, Character $model)
+    public function delete(Authenticatable $user, Character $character)
     {
-        //
+        return $user->id === $character->user_id;
+    }
+
+    public function attachCharacter()
+    {
+        return true;
+    }
+
+    public function detachCharacter()
+    {
+        return true;
+    }
+
+    public function view()
+    {
+        return true;
     }
 }

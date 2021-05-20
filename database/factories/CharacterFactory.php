@@ -21,6 +21,7 @@ class CharacterFactory extends Factory
             'nickname' => $this->faker->streetName,
             'portrayed' => $this->faker->name,
             'quote_id' => Quote::query()->inRandomOrder()->first()->id,
+            'user_id' => 1,
         ];
     }
 }

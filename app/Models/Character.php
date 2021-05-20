@@ -19,6 +19,7 @@ class Character extends Model
         'nickname',
         'portrayed',
         'quote_id',
+        'user_id',
     ];
 
     protected $casts = [

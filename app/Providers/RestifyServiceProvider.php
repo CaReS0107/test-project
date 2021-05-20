@@ -24,11 +24,6 @@ class RestifyServiceProvider extends RestifyApplicationServiceProvider
         });
     }
 
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
     public function register()
     {
         //

@@ -17,6 +17,7 @@ class CreateCharactersTable extends Migration
             $table->string('nickname')->nullable();
             $table->string('portrayed')->nullable();
             $table->foreignId('quote_id')->constrained('quotes')->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->timestamps();
         });
     }
